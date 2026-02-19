@@ -1,9 +1,6 @@
 from playwright.sync_api import Page
 from pages.base_page import BasePage
 
-URL = "https://www.saucedemo.com/inventory.html"
-
-
 class InventoryPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
@@ -13,7 +10,7 @@ class InventoryPage(BasePage):
         self.cart_badge = page.locator(".shopping_cart_badge")
 
     def navigate(self):
-        super().navigate(URL)
+        super().navigate("/inventory.html")
 
     def get_product_names(self) -> list[str]:
         return self.page.locator(".inventory_item_name").all_inner_texts()

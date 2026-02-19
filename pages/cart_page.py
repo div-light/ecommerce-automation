@@ -1,9 +1,6 @@
 from playwright.sync_api import Page
 from pages.base_page import BasePage
 
-URL = "https://www.saucedemo.com/cart.html"
-
-
 class CartPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
@@ -12,7 +9,7 @@ class CartPage(BasePage):
         self.continue_shopping_button = page.locator("#continue-shopping")
 
     def navigate(self):
-        super().navigate(URL)
+        super().navigate("/cart.html")
 
     def get_cart_items(self) -> list[str]:
         return self.page.locator(".inventory_item_name").all_inner_texts()

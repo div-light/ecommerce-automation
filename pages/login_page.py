@@ -1,9 +1,6 @@
 from playwright.sync_api import Page
 from pages.base_page import BasePage
 
-URL = "https://www.saucedemo.com"
-
-
 class LoginPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
@@ -13,7 +10,7 @@ class LoginPage(BasePage):
         self.error_message = page.locator("[data-test='error']")
 
     def navigate(self):
-        super().navigate(URL)
+        super().navigate("/")
 
     def login(self, username: str, password: str):
         self.username_input.fill(username)
